@@ -1,4 +1,4 @@
-import { LOAD_POSTS } from "../actionTypes/actionTypes"
+import { ADD_POST, LOAD_POSTS } from "../actionTypes/actionTypes"
 
 export const loadPost = (data) => {
     return {
@@ -6,3 +6,8 @@ export const loadPost = (data) => {
         payload: data,
     }
 }
+
+export const addPost = (post) => ({
+    type: ADD_POST,
+    payload: post,
+  });
