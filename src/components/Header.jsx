@@ -7,7 +7,7 @@ const Header = () => {
             <div>
                 <ul className="flex gap-5">
                     <li><Link to="/add" className="border-b-2 border-primary">Add Posts</Link></li>
-                    <li><Link to="/list" className="border-b-2 border-primary">Post List</Link></li>
+                    <li><Link to="/post-list" className="border-b-2 border-primary">Post List</Link></li>
                 </ul>
             </div>
         </div>
