@@ -3,6 +3,7 @@ import MainLayout from "../layout/MainLayout";
 import AddPost from "../pages/AddPost";
 import Home from "../pages/Home";
 import PostList from "../pages/PostList";
+import UpdatePost from "../pages/UpdatePost";
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
         {
           path: '/add-post',
           element: <AddPost/>
+        },
+        {
+          path: '/posts/:id',
+          element: <UpdatePost></UpdatePost>
         }
       ]
     }
