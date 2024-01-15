@@ -4,6 +4,7 @@ import AddPost from "../pages/AddPost";
 import Home from "../pages/Home";
 import PostList from "../pages/PostList";
 import UpdatePost from "../pages/UpdatePost";
+import SavePost from "../pages/SavePost";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
         {
           path: '/posts/:id',
           element: <UpdatePost></UpdatePost>
+        },
+        {
+          path: '/save-post',
+          element: <SavePost/>
         }
       ]
     }
