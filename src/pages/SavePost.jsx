@@ -16,7 +16,7 @@ const SavePost = () => {
                 <ul className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
                     {
                         posts?.map((item, idx) => (
-                            <li key={idx} className="border rounded-lg">
+                            <li key={idx} className="border rounded-lg flex flex-col justify-between">
                                 <div className="flex items-start justify-between p-4">
                                     <div className="space-y-2">
                                         {item.icon}
