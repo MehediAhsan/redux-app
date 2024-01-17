@@ -1,18 +1,30 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import loadPostData from '../redux/thunk/loadPostData';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { savePost } from '../redux/actions/postAction';
+import Loading from '../components/Loading';
+import ReactPaginate from 'react-paginate';
 
 const Home = () => {
-    const posts = useSelector((state) => state.posts);
+    const { posts, loading } = useSelector((state) => state);
     const dispatch = useDispatch();
+    const [currentPage, setCurrentPage] = useState(0);
+    const postsPerPage = 6;
 
     const handleSavePost = (id) => {
         const selectedPost = posts.find(post => post.id === id);
         dispatch(savePost(selectedPost))
     }
+
+    const indexOfLastPost = (currentPage + 1) * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = posts?.slice(indexOfFirstPost, indexOfLastPost);
+
+    const handlePageChange = ({ selected }) => {
+        setCurrentPage(selected);
+    };
 
     useEffect(() => {
         if (posts?.length === 0) {
@@ -21,11 +33,15 @@ const Home = () => {
     }, [])
 
     return (
-        <section className="py-16">
-            <div className="max-w-screen-xl mx-auto px-4 md:px-8">
+        <section className="">
+            {
+                loading && <Loading></Loading>
+            }
+            <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-16">
+
                 <ul className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
                     {
-                        posts?.map((item, idx) => (
+                        currentPosts?.map((item, idx) => (
                             <li key={idx} className="border rounded-lg flex flex-col justify-between">
                                 <div className="flex items-start justify-between p-4">
                                     <div className="space-y-2">
@@ -49,6 +65,18 @@ const Home = () => {
                         ))
                     }
                 </ul>
+
+                <ReactPaginate
+                    previousLabel={'previous'}
+                    nextLabel={'next'}
+                    breakLabel={'...'}
+                    pageCount={Math.ceil(posts.length / postsPerPage)}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={handlePageChange}
+                    containerClassName={'pagination'}
+                    activeClassName={'active'}
+                />
             </div>
         </section>
     );

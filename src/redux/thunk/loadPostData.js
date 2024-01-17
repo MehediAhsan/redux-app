@@ -1,7 +1,8 @@
-import { loadPost } from "./../actions/postAction";
+import { loadPost, loading } from "./../actions/postAction";
 
 const loadPostData = () => {
   return async (dispatch) => {
+    dispatch(loading())
     const res = await fetch("https://jsonplaceholder.typicode.com/posts");
     const data = await res.json();
 

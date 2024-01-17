@@ -1,7 +1,9 @@
 import { useDispatch } from 'react-redux';
 import addPostData from '../redux/thunk/AddPostData';
+import { useNavigate } from 'react-router-dom';
 const AddPost = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,6 +19,7 @@ const AddPost = () => {
         console.log(post);
         dispatch(addPostData(post))
         form.reset();
+        navigate('/post-list')
     }
   return (
     <div className="py-14">

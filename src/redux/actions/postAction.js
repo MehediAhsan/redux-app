@@ -1,4 +1,12 @@
-import { ADD_POST, DELETE_POST, LOAD_POSTS, SAVE_POST, UNSAVE_POST, UPDATE_POST } from "../actionTypes/actionTypes";
+import {
+  ADD_POST,
+  DELETE_POST,
+  LOADING,
+  LOAD_POSTS,
+  SAVE_POST,
+  UNSAVE_POST,
+  UPDATE_POST,
+} from "../actionTypes/actionTypes";
 
 export const loadPost = (data) => {
   return {
@@ -30,4 +38,9 @@ export const savePost = (selectedPost) => ({
 export const unsavePost = (id) => ({
   type: UNSAVE_POST,
   payload: id,
+});
+
+export const loading = () => ({
+  type: LOADING,
+  payload: true,
 });

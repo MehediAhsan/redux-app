@@ -1,7 +1,8 @@
-import { deletePost } from "../actions/postAction";
+import { deletePost, loading } from "../actions/postAction";
 
 const deletePostData = (postId) => {
   return async (dispatch) => {
+    dispatch(loading())
     const res = await fetch(
       `https://jsonplaceholder.typicode.com/posts/${postId}`,
       {

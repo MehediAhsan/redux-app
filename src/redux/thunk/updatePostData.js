@@ -1,8 +1,9 @@
-import { updatePost } from "../actions/postAction";
+import { loading, updatePost } from "../actions/postAction";
 
 
 const updatePostData = (post,id) => {
   return async (dispatch) => {
+    dispatch(loading())
     const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
       method: "PUT",
       body: JSON.stringify(post),
