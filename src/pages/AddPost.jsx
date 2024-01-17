@@ -31,7 +31,8 @@ const AddPost = () => {
               type="number"
               name="userId"
               required
-              className="w-full mt-2 px-3 py-2 text-gray-200 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+              className="w-full mt-2 px-3 py-2 text-gray-200 bg-transparent outline-none border focus:border-blue-600 shadow-sm rounded-lg"
+              placeholder='User Id'
             />
           </div>
           <div>
@@ -40,7 +41,8 @@ const AddPost = () => {
               type="text"
               name="title"
               required
-              className="w-full mt-2 px-3 py-2 text-gray-200 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+              className="w-full mt-2 px-3 py-2 text-gray-200 bg-transparent outline-none border focus:border-blue-600 shadow-sm rounded-lg"
+              placeholder='Post Title'
             />
           </div>
           <div>
@@ -48,10 +50,11 @@ const AddPost = () => {
             <textarea
             name="body"
               required
-              className="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+              className="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-transparent outline-none border focus:border-blue-600 shadow-sm rounded-lg"
+              placeholder='Post Details...'
             ></textarea>
           </div>
-          <button className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150">
+          <button className="w-full px-4 py-2 text-white font-medium bg-blue-600 hover:bg-blue-500 active:bg-blue-600 rounded-lg duration-150">
             Submit
           </button>
         </form>

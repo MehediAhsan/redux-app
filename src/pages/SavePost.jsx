@@ -13,7 +13,8 @@ const SavePost = () => {
     return (
         <section className="py-16">
             <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-                <ul className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+                {
+                    posts.length === 0 ? <div className='text-yellow-500'>No Save Post Available...</div> : <ul className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
                     {
                         posts?.map((item, idx) => (
                             <li key={idx} className="border rounded-lg flex flex-col justify-between">
@@ -34,6 +35,7 @@ const SavePost = () => {
                         ))
                     }
                 </ul>
+                }
             </div>
         </section>
     );
