@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import loadPostData from '../redux/thunk/loadPostData';
 import { useSelector } from 'react-redux';
